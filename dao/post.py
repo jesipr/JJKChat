@@ -134,7 +134,9 @@ class PostDAO:
             cursor.execute(query, (uID, ))
         except psycopg2.Error as e:
             return
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
     def getNumberOfPostPerDay(self):
