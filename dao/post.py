@@ -129,7 +129,7 @@ class PostDAO:
 
     def getNumberOfPostsPerDayByUser(self, uID):
         cursor = self.conn.cursor()
-        query = "SELECT post_date AS day, count(*) AS total FROM post WHERE user_id = %s GROUP BY post_date"
+        query = "SELECT post_date AS day, count(*) AS total FROM post WHERE user_id = %s GROUP BY post_date ORDER by post_date asc"
         try:
             cursor.execute(query, (uID, ))
         except psycopg2.Error as e:
