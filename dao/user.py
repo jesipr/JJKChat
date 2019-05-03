@@ -90,7 +90,7 @@ class UserDAO:
                      ) AS queseyo
                      GROUP BY user_id
                      ORDER BY interactions DESC
-                     LIMIT 1
+                     
                      """
         try:
             cursor.execute(query)
